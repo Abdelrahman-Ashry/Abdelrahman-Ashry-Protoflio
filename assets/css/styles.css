@@ -744,3 +744,35 @@ body { overflow-x: hidden; } /* يمنع السكرول الأفقي من أني
   .container { padding-inline: 1rem; }
   .about__info-num { font-size: 1.25rem; }
 }
+
+
+/* ===== MOBILE SPACING + OVERFLOW FIXES ===== */
+html { overflow-x: hidden; }
+main { overflow-x: clip; } /* أي عنصر بره الشاشة (أنيميشن) يتقص ومايوسّعش الصفحة */
+
+@media screen and (max-width: 767px) {
+  /* مسافات الأقسام */
+  .section { padding-block: 4rem 2.5rem; }
+  .section__title { margin-bottom: 1rem; }
+
+  /* Home */
+  .home { padding-top: 6rem; padding-bottom: 0; }
+  .home__container { row-gap: 1.5rem; }
+  .home__info-img { display: none; } /* نفس الصورة موجودة فوق، وكانت بتتعصر */
+
+  /* باقي الأقسام */
+  .about__container { row-gap: 1.5rem; }
+  .skills__container { gap: 1.25rem; }
+  .contact__container { row-gap: 2rem; }
+}
+
+
+/* ===== FIX: عمود الـ grid كان بيتوسع أكتر من الشاشة على الموبايل ===== */
+@media screen and (max-width: 767px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .grid > * { min-width: 0; }
+  .contact__form-input { width: 100%; min-width: 0; }
+  .contact__card { margin-bottom: .75rem; }
+  .contact__socials { margin-top: 1rem; }
+  .project__content { min-width: 0; overflow-wrap: anywhere; }
+}
