@@ -693,3 +693,54 @@ img { max-width: 100%; height: auto; }
 }
 .scrollup:hover { transform: translateY(-4px); }
 .scrollup.show-scroll { bottom: 3rem; }
+
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; } /* يمنع السكرول الأفقي من أنيميشن ScrollReveal */
+
+@media screen and (max-width: 767px) {
+  /* Header: زرار Resume كان أطول من الهيدر */
+  .nav__actions .button--ghost { padding: .45rem .9rem; }
+  .nav__toggle { padding: .5rem; margin-right: -.5rem; }
+
+  /* Home */
+  .home { padding-top: 6.5rem; }
+  .home__social-link { width: 2.5rem; height: 2.5rem; }
+  .home__blob { width: min(280px, 75vw); height: min(280px, 75vw); }
+  .home__info { padding: 1.25rem; }
+
+  /* About */
+  .about__img { width: min(260px, 70vw); height: auto; aspect-ratio: 26 / 31; }
+  .about__info { gap: .5rem; }
+  .about__info-box { padding: .85rem .4rem; }
+
+  /* Projects */
+  .project__item { grid-template-columns: 44px 1fr; gap: .75rem; padding: 1.5rem 0; }
+  .project__num { font-size: 2rem; }
+  .project__item:hover { padding-left: 0; }
+  .project__links { flex-wrap: wrap; }
+
+  /* Experience: التايم لاين كان واخد 25% من العرض */
+  .experience__item { grid-template-columns: 20px 1fr; gap: 0 1rem; }
+  .experience__rounder { justify-self: center; }
+  .experience__line { right: auto; left: 10px; transform: translateX(-50%); }
+  .experience__data { min-width: 0; }
+
+  /* Skills */
+  .skills__group { padding: 1.5rem; }
+
+  /* Contact */
+  .contact__card { flex-wrap: wrap; }
+  .contact__card > div { flex: 1 1 140px; min-width: 0; }
+  .contact__card-data { overflow-wrap: anywhere; }
+  .contact__socials { flex-wrap: wrap; }
+  .contact__form-input { font-size: 16px; } /* يمنع زوم iPhone عند الكتابة */
+  .contact__form .button { width: 100%; justify-content: center; }
+}
+
+@media screen and (max-width: 360px) {
+  :root { --biggest-font-size: 1.75rem; }
+  .container { padding-inline: 1rem; }
+  .about__info-num { font-size: 1.25rem; }
+}
